@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js"></script>
+    <title>Generator Codziennych Wyzwań</title>
+</head>
+<body>
+    <header>
+        <h1>Generator Codziennych Wyzwań</h1>
+    </header>
+    <div id="lewo">
+
+    </div>
+    <div id="srodek">
+        <div id="srodek1"></div>
+        <input type="button" value="Wylosuj wyzwanie" id="losuj" class="przycisk" onclick="losujWyzwanie()"> <!--Przycisk do losowania wyzwania-->
+        <h2 id="wyzwanie" class="animacja"></h2> <!--Miejsce na wyzwanie-->
+
+        <input type="button" value="Ukończone" class="przycisk" id="ukonczone" onclick="ukonczoneWyzwanie()"> <!--Przycisk do potwierdzenia ukończenia zadania-->
+
+        <div id="srodek2">
+            <input type="button" value="Pokaż historię" id="historia" class="przycisk" onclick="pokazHistorie()"> <!--Przycisk do pokazania historii wyzwań-->
+        </div>
+    </div>
+
+    <div id="prawo">
+
+    </div>
+    </div>
+</body>
+</html>
