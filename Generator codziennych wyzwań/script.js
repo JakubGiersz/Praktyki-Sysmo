@@ -97,25 +97,20 @@ function ukonczoneWyzwanie() {
         localStorage.setItem("historiaWyzwan", JSON.stringify(historiaWyzwan)); // Zapis historii do localStorage
         document.getElementById("wyzwanie").style.textDecoration = "underline";
         document.getElementById("wyzwanie").style.color = "green";
-        alert("Gratulacje! Wyzwanie wykonane 🎉");
 
         // Wyświetlenie animacji
         const animacjaElement = document.getElementById("animacja");
-        animacjaElement.style.display = "block"; // Pokazanie kontenera z animacją
+        animacjaElement.style.display = "flex"; // Pokazanie kontenera z animacją
 
-        // Załadowanie animacji Lottie
-        const animacja = lottie.loadAnimation({
-            container: animacjaElement, // Kontener na animację
-            renderer: 'svg',
-            loop: false,
-            autoplay: true,
-            path: 'path/Animation - 1745565383900.json' // Ścieżka do pliku JSON z animacją
-        });
-
-        // Ukrycie animacji po zakończeniu
-        animacja.addEventListener('complete', () => {
+        // Ukrycie animacji po 3 sekundach
+        setTimeout(() => {
             animacjaElement.style.display = "none";
-        });
+        }, 3000);
+
+        // Wyświetlenie komunikatu po zakończeniu animacji
+        setTimeout(() => {
+            alert("Gratulacje! Wyzwanie wykonane 🎉");
+        }, 3000);
     } else if (wyzwanie) {
         alert("To wyzwanie zostało już ukończone.");
     }
