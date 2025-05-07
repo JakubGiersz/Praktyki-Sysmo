@@ -25,6 +25,7 @@ const wyzwania = [
 // Przechowywanie historii ukończonych wyzwań
 let historiaWyzwan = JSON.parse(localStorage.getItem("historiaWyzwan")) || [];
 let wylosowaneWyzwania = JSON.parse(localStorage.getItem("wylosowaneWyzwania")) || [];
+let historiaZamknieta = false; // Flaga śledząca, czy historia została zamknięta
 
 // Funkcja sprawdzająca datę i resetująca historię
 function sprawdzDate() {
@@ -76,6 +77,8 @@ function losujWyzwanie() {
             wyzwanieElement.textContent = finalneWyzwanie;
             wylosowaneWyzwania.push(finalneWyzwanie); // Dodanie wyzwania do listy wylosowanych
             localStorage.setItem("wylosowaneWyzwania", JSON.stringify(wylosowaneWyzwania));
+
+            // Pokaż przycisk "Ukończone" po pierwszym losowaniu
             document.getElementById("ukonczone").style.display = "inline-block";
 
             // Sprawdzenie ponownie, czy wszystkie wyzwania zostały wylosowane
@@ -118,11 +121,30 @@ function ukonczoneWyzwanie() {
 
 // Funkcja pokazująca historię ukończonych wyzwań
 function pokazHistorie() {
-    if (historiaWyzwan.length > 0) {
-        alert("Historia ukończonych wyzwań:\n" + historiaWyzwan.join("\n"));
-    } else {
-        alert("Brak ukończonych wyzwań.");
+    const historiaBox = document.getElementById("historia-box");
+    const historiaList = document.getElementById("historia-list");
+
+    // Jeśli box jest już widoczny, nie rób nic
+    if (historiaBox.style.display === "block") {
+        return;
     }
+
+    // Wyczyszczenie listy przed dodaniem nowych elementów
+    historiaList.innerHTML = "";
+
+    if (historiaWyzwan.length > 0) {
+        historiaWyzwan.forEach(wyzwanie => {
+            const listItem = document.createElement("li");
+            listItem.textContent = wyzwanie;
+            listItem.style.marginBottom = "10px";
+            historiaList.appendChild(listItem);
+        });
+    } else {
+        historiaList.innerHTML = "<li>Brak ukończonych wyzwań.</li>";
+    }
+
+    historiaBox.style.display = "block"; // Pokaż box z historią
+    console.log("Historia została wyświetlona.");
 }
 
 // Sprawdzenie daty przy załadowaniu strony

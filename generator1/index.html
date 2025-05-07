@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+    <script src="script.js"></script>
+    <title>Generator Codziennych Wyzwań</title>
+    <script
+        src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+        type="module">
+    </script>
+</head>
+<body>
+    <header>
+        <h1>GENERATOR CODZIENNYCH WYZWAŃ <img src="plant 1.png" alt="plant"></h1>
+    </header>
+    <div id="lewo"></div>
+    <div id="srodek">
+        <div id="srodek1">
+            <h2 id="wyzwanie" class="animacja"></h2> <!--Miejsce na wyzwanie-->
+            <input type="button" value="Historia" id="historia" class="przycisk" onclick="pokazHistorie()"> <!--Przycisk do pokazania historii wyzwań-->
+            <input type="button" value="Ukończone" class="przycisk" id="ukonczone" onclick="ukonczoneWyzwanie()" style="display: none;"> <!--Przycisk do potwierdzenia ukończenia zadania-->
+        </div>
+        <div id="srodek2">
+            <input type="button" value="Wylosuj wyzwanie" id="losuj" class="przycisk" onclick="losujWyzwanie()"> <!--Przycisk do losowania wyzwania-->
+        </div>
+        <div id="historia-box" style="display: none;">
+            <h3>Historia ukończonych wyzwań:</h3>
+            <ul id="historia-list"></ul>
+            <input type="button" value="Zamknij historię" class="przycisk zamknij-historia" onclick="document.getElementById('historia-box').style.display='none';">
+        </div>
+    </div>
+    <div id="prawo"></div>
+    <div id="animacja" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; justify-content: center; align-items: center;">
+        <dotlottie-player
+            id="player"
+            src="https://lottie.host/d3dcb921-0c3e-4614-8e4f-8c95ac28a8f6/jCTwPpKqa2.lottie"
+            background="transparent"
+            speed="1"
+            style="width: 300px; height: 300px"
+            loop
+            autoplay>
+        </dotlottie-player>
+    </div>
+    <footer>
+      
+        </div>
+        <div class="footer-sekcja">
+            <a href="regulamin.pl"><h3>Regulamin</h3></a>
+            <a href="prywatność.pl"><h3>Polityka prywatności</h3></a>
+            <a href="kontakt.pl"><h3>Kontakt</h3></a>
+            
+        </div>
+    </footer>
+</body>
+</html>
